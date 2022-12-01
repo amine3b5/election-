@@ -1,11 +1,8 @@
 typedef struct{
 int id;
 int idtete;
-int idm1;
-int idm2;
-int idm3;
-char code[50];
-
+int idm[2];
+int nv;
 }liste;
 
 
