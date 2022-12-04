@@ -227,45 +227,7 @@ void
 on_button_supp_gma_clicked             (GtkButton       *button,
                                         gpointer         user_data)
 {
-  GtkWidget *output ;
-  int id;
-  liste nouv;
-  gchar idl[50];
-  gchar idt[50];
-  gchar ch[50];
-  gchar sh[50];
-
-  GtkWidget *entry = lookup_widget(GTK_WIDGET(button), "entry_idlsupp_gma");
-  strcpy(idl,gtk_entry_get_text(GTK_ENTRY(entry)) );
-  GtkWidget *entry1 = lookup_widget(GTK_WIDGET(button), "entry_idtsupp_gma");
-  strcpy(idt,gtk_entry_get_text(GTK_ENTRY(entry1)) );
-  output=lookup_widget(button, "label40");
-
-  id=atoi(idl);
-int supprimer_liste(char *fn, int id)
-{
-    int tr=0;
-    liste l;
-    FILE *f=fopen(fn,"r");
-    FILE *f2=fopen("nouv.txt","w");
-    if(f!=NULL && f2!=NULL)
-    {	
-	while(fscanf(f,"%d %d %d %d %d %s\n",&l.id,&l.idtete,&l.idm[0],&l.idm[1],&l.idm[2],l.ori)!=EOF)
-        {
-            if(l.id==id)
-		tr=1;
-                
-            else
-                fprintf(f2,"%d %d %d %d %d %s\n",l.id,l.idtete,l.idm[0],l.idm[1],l.idm[2],l.ori);
-        }
-    }
-    fclose(f);
-    fclose(f2);
-    remove(fn);
-    rename("nouv.txt",fn);
-    return tr;
-}
-  supprimer_liste("listes_electorales.txt",id);
+  
 }
 
 
